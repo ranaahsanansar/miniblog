@@ -9,6 +9,6 @@ class DashboardController extends Controller
 {
     public function show_post() {
         $posts = Post::paginate(3);
-        return view('dashboard' , ['posts' => $posts]);
+        return view('dashboard' , ['posts' => $posts ]);
     }
 }

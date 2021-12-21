@@ -14,17 +14,18 @@
                         <div class="heading">
                             <h3>{{$post->title}}</h3>
                             <div class="author">
-                            <p>Created By: <strong>Ahsan Ansar</strong></p>
+                            <p>Created By: <strong>{{$post->user->name}}</strong></p>
                             </div>
                         </div>
                         <div class="body">
                             <p>{{$post->body}}</p>
                         </div>
                         <div class="buttons">
-                            <button type="button" class="btn btn-secondary">Secondary</button>
-                            <button type="button" class="btn btn-danger">Danger</button>
+                            <button type="button" class="btn btn-secondary">Edit</button>
+                            <button type="button" class="btn btn-danger">Delete</button>
                         </div>
                         
+
                     
                 </div>
                 @endforeach

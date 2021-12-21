@@ -34,6 +34,9 @@
                 /* position: absolute;
                 right: 140px; */
             }
+            .msg {
+                margin-top: 2px;
+            }
         </style>
 
     </head>
