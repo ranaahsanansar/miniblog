@@ -1,27 +1,28 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight ">
-            {{ __('Create a  new Post') }}
+            {{ __('Edit Post') }}
         </h2>
 
 
     </x-slot>
 
     <div class="container">
-        <a  href="{{route('dashboard')}} " class="btn btn-secondary" style="margin-top: 1rem">Dashboard</a>
+
         <div class="forms" style="margin-top: 20px">
             <form method="POST">
                 @csrf
-                <div class="mb-3">
+                @method('PUT')
+                <div class="mb-3"> 
                     <label for="title" class="form-label">Title</label>
-                    <input type="text" class="form-control" id="title" name="title" >
+                    <input type="text" class="form-control" id="title" name="title" value="{{$post->title}}">
                 </div>
                 <div class="mb-3">
                     <label for="body" class="form-label">Body</label>
-                    <textarea name="body" class="form-control" id="body" name="body" cols="30" rows="10"></textarea>
+                    <textarea name="body" class="form-control" id="body" name="body" cols="30" rows="10">{{$post->body}}</textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Post</button>
+                <button type="submit" class="btn btn-primary">Update</button>
             </form>
             <div class="msg">
                 @if (session()->has('status'))

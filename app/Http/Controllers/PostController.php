@@ -63,9 +63,10 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        return view('editForm' , ['post'=> $post]);
     }
-
+ 
     /**
      * Update the specified resource in storage.
      *
@@ -75,7 +76,12 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = $request->user();
+        $post = Post::find($id);
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $user->post()->save($post);
+        return redirect(route('dashboard'))->with('status' , 'Post is Updated');
     }
 
     /**
@@ -84,8 +90,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
     public function destroy($id)
     {
-        //
+        Post::destroy($id);
+        return redirect(route('dashboard'))->with('status' , 'Post is Deleted');
+
     }
 }
